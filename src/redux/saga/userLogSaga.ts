@@ -1,8 +1,8 @@
 import {  call, put, takeLatest } from 'redux-saga/effects';
-import { fetchUserData } from '../../api/userApi';
+import {  fetchUserDataLog } from '../../api/userApi';
 import { setError } from '../actions/actions';
-import { FETCH_USER } from '../../utils/constants';
-import { ApiResponse, User } from '../../utils/interface';
+import {  FETCH_USER_LOG } from '../../utils/constants';
+import { ApiResponse, UserReg } from '../../utils/interface';
 
 function setCookie(name: string, value: string, days: number) {
   const expires = new Date();
@@ -10,17 +10,17 @@ function setCookie(name: string, value: string, days: number) {
   document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
 }
 
-function* fetchUserGenerator(action: any): Generator<any, void, ApiResponse<User>> {
+function* fetchUserGenerator(action: any): Generator<any, void, ApiResponse<UserReg>> {
   try {
-    const data: User [] = action.payload;
+    const data: UserReg [] = action.payload;
     setCookie('user', JSON.stringify(data), 7); 
-    yield call(fetchUserData, data);
+    yield call(fetchUserDataLog, data);
   } catch (error) {
     const errorMessage = typeof error === 'string' ? error : 'An error occurred';
     yield put(setError(errorMessage));
   }
 }
 
-export function* fetchUserSaga() {
-  yield takeLatest(FETCH_USER, fetchUserGenerator); 
+export function* fetchUserLogSaga() {
+  yield takeLatest(FETCH_USER_LOG, fetchUserGenerator); 
 }

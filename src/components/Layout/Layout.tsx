@@ -34,8 +34,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   if (userCookie) {
     dispatch(login());
   }
-  }, []);
-  
+  }, [isAuthenticated]);
+
   return (
     <>
       <NavContainer>

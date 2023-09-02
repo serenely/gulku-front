@@ -24,6 +24,7 @@ export const STOP_LOADING_PRODUCTS = 'STOP_LOADING_PRODUCTS';
 export const LOAD_PRODUCTS_FROM_CART = 'LOAD_PRODUCTS_FROM_CART';
 
 export const FETCH_USER = 'FETCH_USER';
+export const FETCH_USER_LOG = 'FETCH_USER_LOG';
 export const SET_ERROR = 'SET_ERROR';
 
 export const LOGOUT = "LOGOUT";

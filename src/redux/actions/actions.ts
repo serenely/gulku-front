@@ -21,15 +21,18 @@ import {
   SET_ERROR, 
   LOGIN,
   LOGOUT,
-  LOGOUT_SUCCESS
+  LOGOUT_SUCCESS,
+  FETCH_USER_LOG
 } from "../../utils/constants";
 import { 
   FetchUserAction,
+  FetchUserLogAction,
   Product,
   ProductActionTypes,
   ProductsActionTypes, 
   SetErrorAction, 
-  User,
+  UserLog, 
+  UserReg,
      } from "../../utils/interface";
 
   // PRODUCTS REQUEST ACTION
@@ -127,8 +130,12 @@ import {
     type: LOAD_PRODUCTS_FROM_CART,
   });
 
-  export const fetchUser = (user: User): FetchUserAction => ({
+  export const fetchUser = (user: UserReg): FetchUserAction => ({
     type: FETCH_USER,
+    payload: user,
+  });
+  export const fetchUserLog = (user: UserLog): FetchUserLogAction => ({
+    type: FETCH_USER_LOG,
     payload: user,
   });
   

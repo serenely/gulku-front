@@ -1,8 +1,8 @@
 import { SET_ERROR} from "../../utils/constants";
-import { User } from "../../utils/interface";
+import { UserReg } from "../../utils/interface";
 
 interface UserState {
-  user: User | null;
+  user: UserReg | null;
   error: string | null;
 }
 

@@ -3,11 +3,13 @@ import { logoutSuccess } from "../actions/actions";
 import { LOGOUT } from "../../utils/constants";
 
 function* logoutUser() {
-    const deleteCookie = (name: any) =>
+    const deleteCookie = (name: string) =>
      {
         document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
     }
-  deleteCookie("user");
+  const deleteCartItems = (item: string) => localStorage.removeItem(item)
+  deleteCartItems('cartItems')
+  deleteCookie('user');
   yield put(logoutSuccess());
 }
 

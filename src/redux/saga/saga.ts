@@ -4,8 +4,9 @@ import { productsSaga } from './productsSaga';
 import { removeFromCartItem } from './removeFromCartSaga';
 import { addToCart } from './addToCartSaga';
 import { updateCartQuantity } from './updateCartQuantitySaga';
-import { fetchUserSaga } from './userSaga';
+import { fetchUserSaga } from './userRegSaga';
 import { logoutSaga } from './logoutSaga';
+import { fetchUserLogSaga } from './userLogSaga';
 
 export function* rootSaga() {
   yield all([
@@ -16,5 +17,6 @@ export function* rootSaga() {
     updateCartQuantity(),
     fetchUserSaga(),
     logoutSaga(),
+    fetchUserLogSaga(),
     ]);
 }

@@ -6,16 +6,21 @@ import {
    FETCH_PRODUCT_REQUEST, 
    FETCH_PRODUCT_SUCCESS, 
    FETCH_USER,
+   FETCH_USER_LOG,
    SET_ERROR,
 } from "./constants";
 
-export interface User {
+export interface UserReg {
   fullName: string;
   password: string;
   email: string;
   address: string;
   isAdministrator: boolean;
   token: String;
+}
+export interface UserLog {
+  email: string;
+  password: string;
 }
 
 export interface Product {
@@ -94,13 +99,17 @@ export interface CartState {
 
 
 export interface UserState {
-  user: User | null;
+  user: UserReg | null;
   error: string | null;
 }
 
 export interface FetchUserAction {
   type: typeof FETCH_USER;
-  payload: User; 
+  payload: UserReg; 
+}
+export interface FetchUserLogAction {
+  type: typeof FETCH_USER_LOG;
+  payload: UserLog; 
 }
 
 export interface SetErrorAction {
@@ -108,7 +117,7 @@ export interface SetErrorAction {
   payload: string;
 }
 
-export interface ApiResponse<User> {
-  data: User;
+export interface ApiResponse<UserReg> {
+  data: UserReg;
   error: string | null;
 }
