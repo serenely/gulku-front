@@ -1,7 +1,7 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
-import { fetchProductsData } from '../../api/productsApi'; 
-import { FETCH_PRODUCTS_REQUEST } from '../../utils/constants';
-import { fetchProductsFailure, fetchProductsSuccess } from '../actions/actions';
+import { fetchProductsData } from '../../../api/productsApi'; 
+import { FETCH_PRODUCTS_REQUEST } from '../../../utils/constants';
+import { fetchProductsFailure, fetchProductsSuccess } from '../../actions/actions';
 
 function* getProductsDataSaga(): Generator<any, any, any>  { //разобраться для чего тут any, можно ли изменить
   try {

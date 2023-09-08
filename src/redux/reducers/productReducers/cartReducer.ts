@@ -1,5 +1,5 @@
-import { ADD_TO_CART, REMOVE_FROM_CART_SUCCESS, UPDATE_CART_FROM_LOCAL_STORAGE, UPDATE_CART_ITEM_QUANTITY } from '../../utils/constants';
-import { Product } from '../../utils/interface';
+import { ADD_TO_CART, REMOVE_FROM_CART_SUCCESS, UPDATE_CART_FROM_LOCAL_STORAGE, UPDATE_CART_ITEM_QUANTITY } from '../../../utils/constants';
+import { Product } from '../../../utils/interface';
 
 interface CartState {
   cartItems: Product[];

@@ -1,6 +1,6 @@
 import { UserLog, UserReg } from "../utils/interface";
 
-export const fetchUserData = async (data: Array<UserReg>) =>{
+export const fetchUserDataReg = async (data: Array<UserReg>) =>{
     try {
       const response = await fetch('http://localhost:4000/register', {
         method: 'POST',
@@ -12,11 +12,9 @@ export const fetchUserData = async (data: Array<UserReg>) =>{
   
       if (response.ok) {
         const responseData = await response.json();
-        const token = responseData.token; 
-        console.log('Token:', token);
-        console.log('Data:', data);
         
         console.log('Успешно отправлено на сервер:', responseData);
+        return responseData;
       } else {
         console.error('Ошибка при отправке на сервер:', response.statusText);
       }
@@ -25,7 +23,7 @@ export const fetchUserData = async (data: Array<UserReg>) =>{
     }
   }
 
-  export const fetchUserDataLog = async (data: Array<UserLog>) =>{
+  export const fetchUserDataLog = async (data: Array<UserLog>) => {
     try {
       const response = await fetch('http://localhost:4000/login', {
         method: 'POST',
@@ -34,14 +32,13 @@ export const fetchUserData = async (data: Array<UserReg>) =>{
         },
         body: JSON.stringify(data),
       },);
-  
+      
       if (response.ok) {
         const responseData = await response.json();
-        const token = responseData.token; 
-        console.log('Token:', token);
-        console.log('Data:', data);
         
-        console.log('Успешно отправлено на сервер:', responseData);
+        console.log('Успешно отправлено на сервер:', responseData );
+        console.log('responseData', responseData );
+        return responseData;
       } else {
         console.error('Ошибка при отправке на сервер:', response.statusText);
       }
@@ -49,3 +46,41 @@ export const fetchUserData = async (data: Array<UserReg>) =>{
       console.error('Ошибка при отправке на сервер:', error);
     }
   }
+
+  export const fetchUserData = async (_id: string, token: string) => {
+    try {
+      const response = await fetch(`http://localhost:4000/users/${_id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.ok) {
+      const responseData = await response.json();
+      console.log('Response Data:', responseData);
+    } else {
+      console.error('Ошибка при отправке на сервер:', response.statusText);
+    }
+    } catch (error) {
+      console.error('Ошибка при отправке на сервер:', error);
+    }
+  }
+
+  export const fetchProductDeleteData = async (productId: string, token: string) => {
+    try {
+      const response = await fetch(`http://localhost:4000/products/${productId}`, {
+        method: 'DELETE',
+        headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    
+    if (response.ok) {
+      console.log('Продукт успешно удален');
+    } else {
+      console.error('Ошибка при удалении продукта:', response.statusText);
+    }
+  } catch (error) {
+    console.error('Ошибка при отправке запроса:', error);
+  }
+}

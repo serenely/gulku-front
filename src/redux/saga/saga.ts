@@ -1,12 +1,14 @@
 import { all } from 'redux-saga/effects';
-import {  productSaga } from './productSaga';
-import { productsSaga } from './productsSaga';
-import { removeFromCartItem } from './removeFromCartSaga';
-import { addToCart } from './addToCartSaga';
-import { updateCartQuantity } from './updateCartQuantitySaga';
-import { fetchUserSaga } from './userRegSaga';
-import { logoutSaga } from './logoutSaga';
-import { fetchUserLogSaga } from './userLogSaga';
+import { productSaga } from './productSagas/productSaga';
+import { productsSaga } from './productSagas/productsSaga';
+import { removeFromCartItem } from './productSagas/removeFromCartSaga';
+import { addToCart } from './productSagas/addToCartSaga';
+import { updateCartQuantity } from './productSagas/updateCartQuantitySaga';
+import { fetchUserSaga } from './userSagas/userRegSaga';
+import { logoutSaga } from './userSagas/logoutSaga';
+import { fetchUserLogSaga } from './userSagas/userLogSaga';
+import { fetchUserDataSaga } from './userSagas/userDataSaga';
+import { removeItemSaga } from './userSagas/removeItemSaga';
 
 export function* rootSaga() {
   yield all([
@@ -18,5 +20,7 @@ export function* rootSaga() {
     fetchUserSaga(),
     logoutSaga(),
     fetchUserLogSaga(),
+    fetchUserDataSaga(),
+    removeItemSaga(),
     ]);
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Typography } from "@mui/material";
 import { 
   ButtonStyled,
+  ButtonStyledRemoved,
   CardStyled,
   CardStyledOne,
   LinkStyled,
@@ -12,7 +13,7 @@ import {
 } from "./styles";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import {  addToCart, fetchProductsRequest } from "../../redux/actions/actions";
+import {  addToCart, fetchProductsRequest, fetchUserDataRequest, removeFromData } from "../../redux/actions/actions";
 import { Product } from "../../utils/interface";
 import { LoadingOutlined } from "@ant-design/icons";
 
@@ -20,13 +21,20 @@ const ProductList: React.FC = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector((state: RootState) => state.products.isLoading);
   const productItems = useSelector((state: RootState) => state.products.productItems);
+  const user = useSelector((state: RootState) => state.user?.user);
+  const [removedProductId, setRemovedProductId] = useState<string>('');
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const handleAddToCart = (product: Product) => {
     dispatch(addToCart(product)); 
    };
 
+   const handleRemove = (productId: string, token: string) => {
+    dispatch(removeFromData(productId, token))
+    setRemovedProductId(productId)
+  };
+
   const itemsPerPage = 6; 
-  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const displayedProducts = productItems.slice(startIndex, startIndex + itemsPerPage);
@@ -35,11 +43,12 @@ const ProductList: React.FC = () => {
     setCurrentPage(pageNumber);
   };
 
-
   useEffect(() => {
     dispatch(fetchProductsRequest());
-  }, []);
+    dispatch(fetchUserDataRequest())
+  }, [removedProductId]);
 
+    
   if (isLoading) {
     return <LoadingOutlined style={{width: "50px", height: "50px"}} />
   }
@@ -49,9 +58,19 @@ const ProductList: React.FC = () => {
       <Typography  variant="h4" color={"white"}>
         Products
       </Typography>
-        <CardStyledOne >
+        <CardStyledOne>
           {displayedProducts?.map((product) => (
             <div key={product?._id}>
+                { user?.isAdministrator && ( 
+                    <div style={{width:"100%", display:"flex", justifyContent:"right"}}>
+                      <ButtonStyledRemoved
+                      type="button"
+                      onClick={() => handleRemove(product._id, user.token)}
+                        >
+                      X
+                    </ButtonStyledRemoved>
+                    </div>
+                      )}
               <LinkStyled href={`/products/${product?._id}`}>
                 <Button >
                   <CardStyled variant="outlined">
@@ -59,7 +78,7 @@ const ProductList: React.FC = () => {
                       <StyledImage src={product?.imageUrl}/>
                     </div>
                     <ListItemTextPrimary>{product?.title}</ListItemTextPrimary>
-                    <ListItemTextSecondary secondary={`Цена: $${product?.price}`}/>
+                    <ListItemTextSecondary secondary={`Price: $${product?.price}`}/>
                   </CardStyled>
                 </Button>
               </LinkStyled>

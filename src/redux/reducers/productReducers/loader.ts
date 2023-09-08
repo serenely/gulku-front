@@ -1,4 +1,4 @@
-import { START_LOADING_PRODUCTS, STOP_LOADING_PRODUCTS } from "../../utils/constants";
+import { START_LOADING_PRODUCTS, STOP_LOADING_PRODUCTS } from "../../../utils/constants";
 
 interface LoadingState {
     isLoading: boolean;

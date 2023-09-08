@@ -70,3 +70,19 @@ export const ButtonStyled = styled.button`
       box-shadow: 10px 10px 2px 1px #879aa3;
     }
 `
+export const ButtonStyledRemoved = styled.button`
+  cursor: pointer;
+  margin: 10px;
+  background-color: #fafaff;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 7px 7px 2px 1px #e1eef5;
+  width: 10%;
+  float: right; 
+  
+  &:hover {
+    background-color: #B22222;
+    color: white;
+    box-shadow: 10px 10px 2px 1px #879aa3;
+  }
+`

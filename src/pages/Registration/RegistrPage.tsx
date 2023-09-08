@@ -44,6 +44,7 @@ const RegistrPage: React.FC = () => {
     dispatch(login());
     navigate("/");
   };
+  
 
   return (
     <RegistrationContainer>

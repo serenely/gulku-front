@@ -1,6 +1,6 @@
-import { takeLatest, put, call } from "redux-saga/effects";
-import { logoutSuccess } from "../actions/actions";
-import { LOGOUT } from "../../utils/constants";
+import { takeLatest, put } from "redux-saga/effects";
+import { logoutSuccess } from "../../actions/actions";
+import { LOGOUT } from "../../../utils/constants";
 
 function* logoutUser() {
     const deleteCookie = (name: string) =>

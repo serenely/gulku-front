@@ -4,22 +4,17 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { fetchUserLog, login } from '../../redux/actions/actions';
-
-interface LoginFormInputs {
-  email: string;
-  password: string;
-}
+import { UserLog } from '../../utils/interface';
 
 const LoginPage: React.FC = () => {
-  const { register, handleSubmit } = useForm<LoginFormInputs>();
-
+  const { register, handleSubmit } = useForm<UserLog>();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onSubmitForm = async (data: LoginFormInputs) => {
+  const onSubmitForm = async (data: UserLog) => {
     dispatch(fetchUserLog(data));
     dispatch(login());
-    navigate("/");
+    // navigate("/");
   };
 
   return (

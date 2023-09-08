@@ -2,8 +2,8 @@ import {
   FETCH_PRODUCT_FAILURE,
   FETCH_PRODUCT_SUCCESS,
   FETCH_PRODUCT_REQUEST
-} from "../../utils/constants";
-import { ProductActionTypes, ProductState } from "../../utils/interface";
+} from "../../../utils/constants";
+import { ProductActionTypes, ProductState } from "../../../utils/interface";
 
 const initialState: ProductState = {
     productItem: [],

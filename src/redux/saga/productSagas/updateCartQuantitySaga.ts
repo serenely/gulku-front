@@ -1,5 +1,5 @@
 import { put, takeEvery } from 'redux-saga/effects';
-import {ADD_TO_CART, LOAD_PRODUCTS_FROM_CART, REMOVE_FROM_CART, UPDATE_CART_ITEM_QUANTITY} from '../../utils/constants';
+import {ADD_TO_CART, LOAD_PRODUCTS_FROM_CART, REMOVE_FROM_CART, UPDATE_CART_ITEM_QUANTITY} from '../../../utils/constants';
 
 function* updateCartQuantitySaga(): Generator<any, void, any> {
   try {

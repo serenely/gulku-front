@@ -22,15 +22,25 @@ import {
   LOGIN,
   LOGOUT,
   LOGOUT_SUCCESS,
-  FETCH_USER_LOG
+  FETCH_USER_LOG,
+  SET_USER,
+  FETCH_USER_DATA_REQUEST,
+  GET_USER_DATA_SUCCESS,
+  GET_USER_DATA_FAILURE,
+  REMOVE_FROM_DATA_FAILURE,
+  REMOVE_FROM_DATA_SUCCESS,
+  REMOVE_FROM_DATA
 } from "../../utils/constants";
 import { 
   FetchUserAction,
   FetchUserLogAction,
   Product,
   ProductActionTypes,
+  ProductDeleteFailureAction,
+  ProductDeleteSuccessAction,
   ProductsActionTypes, 
   SetErrorAction, 
+  SetUserAction, 
   UserLog, 
   UserReg,
      } from "../../utils/interface";
@@ -45,7 +55,7 @@ import {
     type: FETCH_PRODUCTS_SUCCESS,
     payload: products,
   });
-  
+
   export const fetchProductsFailure = (error: string): ProductsActionTypes => ({
     type: FETCH_PRODUCTS_FAILURE,
     error,
@@ -118,6 +128,7 @@ import {
   export const loadProducts = () => ({
     type: LOAD_PRODUCTS,
   });
+  
   export const startLoadingProducts = () => ({
     type: START_LOADING_PRODUCTS,
   });
@@ -139,6 +150,11 @@ import {
     payload: user,
   });
   
+  export const setUser = (user: UserReg): SetUserAction => ({
+    type: SET_USER,
+    payload: user,
+  });
+
   export const setError = (error: string): SetErrorAction => ({
     type: SET_ERROR,
     payload: error,
@@ -147,9 +163,38 @@ import {
   export const login = () => ({ 
     type: LOGIN
    });
+   
   export const logout = () => ({ 
     type: LOGOUT
    });
    export const logoutSuccess = () => ({
       type: LOGOUT_SUCCESS,
+  });
+
+  export const fetchUserDataRequest = () => ({
+    type: FETCH_USER_DATA_REQUEST,
+  });
+  
+  export const getUserDataSuccess = (userData: any) => ({
+    type: GET_USER_DATA_SUCCESS,
+    payload: userData,
+  });
+  
+  export const getUserDataFailure = (error: string) => ({
+    type: GET_USER_DATA_FAILURE,
+    payload: error,
+  });
+
+  export const removeFromData = (productId: string, token: string) => ({
+    type: REMOVE_FROM_DATA,
+    payload: { productId, token },
+  });
+
+  export const removeFromDataSuccess = (): ProductDeleteSuccessAction => ({
+    type: REMOVE_FROM_DATA_SUCCESS,
+  });
+  
+  export const removeFromDataFailure = (error: string): ProductDeleteFailureAction => ({
+    type: REMOVE_FROM_DATA_FAILURE,
+    payload: error,
   });

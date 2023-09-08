@@ -1,8 +1,8 @@
 import { put, takeEvery, select } from "redux-saga/effects";
-import { removeFromCartSuccess } from "../actions/actions";
-import { REMOVE_FROM_CART } from "../../utils/constants";
-import { Product } from "../../utils/interface";
-import { RootState } from "../store";
+import { removeFromCartSuccess } from "../../actions/actions";
+import { REMOVE_FROM_CART } from "../../../utils/constants";
+import { Product } from "../../../utils/interface";
+import { RootState } from "../../store";
 
 function* handleRemoveFromCart(action: { type: string, payload: string }) { // почитать что такое генераторы
   try {

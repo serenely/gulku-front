@@ -1,6 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects';
-import { addToCartFailure, addToCartSuccess } from '../actions/actions';
-import { ADD_TO_CART } from '../../utils/constants';
+import { addToCartFailure, addToCartSuccess } from '../../actions/actions';
+import { ADD_TO_CART } from '../../../utils/constants';
 
 function* addToCartSaga(action: any) {
   try {

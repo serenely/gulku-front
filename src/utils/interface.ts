@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import {
    FETCH_PRODUCTS_FAILURE, 
    FETCH_PRODUCTS_REQUEST, 
@@ -7,16 +8,20 @@ import {
    FETCH_PRODUCT_SUCCESS, 
    FETCH_USER,
    FETCH_USER_LOG,
+   REMOVE_FROM_DATA_FAILURE,
+   REMOVE_FROM_DATA_SUCCESS,
    SET_ERROR,
+   SET_USER,
 } from "./constants";
 
 export interface UserReg {
+  _id: string;
   fullName: string;
   password: string;
   email: string;
   address: string;
   isAdministrator: boolean;
-  token: String;
+  token: string;
 }
 export interface UserLog {
   email: string;
@@ -68,7 +73,7 @@ export type ProductsActionTypes =
 | { type: typeof FETCH_PRODUCTS_SUCCESS; payload: Product[] }
 | {
     payload: string | null; type: typeof FETCH_PRODUCTS_FAILURE; error: string
-};
+  };
 
 export interface FetchProductRequestAction {
   type: typeof FETCH_PRODUCT_REQUEST;
@@ -89,14 +94,13 @@ export type ProductActionTypes =
 | { type: typeof FETCH_PRODUCT_SUCCESS; payload: Product[] }
 | {
     payload: string | null; type: typeof FETCH_PRODUCT_FAILURE; error: string 
-};
+  };
 
 
 export interface CartState {
   cartItems: Product[];
   error: string | null;
 }
-
 
 export interface UserState {
   user: UserReg | null;
@@ -111,13 +115,29 @@ export interface FetchUserLogAction {
   type: typeof FETCH_USER_LOG;
   payload: UserLog; 
 }
-
+export interface SetUserAction {
+  type: typeof SET_USER;
+  payload: UserLog;
+}
 export interface SetErrorAction {
   type: typeof SET_ERROR;
   payload: string;
 }
-
-export interface ApiResponse<UserReg> {
+export interface ApiResponseReg<UserReg> {
   data: UserReg;
   error: string | null;
+}
+export interface ApiResponseLog<UserLog> {
+  data: UserLog;
+  error: string | null;
+}
+export interface ProductDeleteSuccessAction {
+  type: typeof REMOVE_FROM_DATA_SUCCESS;
+}
+export interface ProductDeleteFailureAction {
+  type: typeof REMOVE_FROM_DATA_FAILURE;
+  payload: string; 
+}
+export interface LayoutProps {
+  children: ReactNode;
 }

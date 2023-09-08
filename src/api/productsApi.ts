@@ -16,8 +16,6 @@ export const fetchProductsData = async () => {
   export const fetchProductData = async (_id: string) => {
     try {
       const response = await fetch(`http://localhost:4000/product/:${_id}`);
-      console.log(response);
-      
       
       if (!response.ok) {
         throw new Error('Network response was not ok');

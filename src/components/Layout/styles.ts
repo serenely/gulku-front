@@ -18,7 +18,7 @@ export const NavContainer = styled.div`
     .right{
         display: flex;
         margin: 20px;
-        width: 16%;
+        width: 20%;
         justify-content: space-between;
     }
 `
@@ -42,3 +42,24 @@ export const NavStyledLinkSignUp = styled(Link)`
     padding: 20px;
   }
 `
+
+export const LogOutBtn = styled.button`
+  color: black;
+  border: 1px solid white;
+  border-radius: 60px;
+  text-decoration: none;
+  background-color: white;
+  padding: 20px;
+  font-size: 14px;
+  cursor: pointer;
+`;
+
+export const RoleContainer = styled.div`
+  color: white;
+  border: 1px solid white;
+  border-radius: 60px;
+  text-decoration: none;
+  background-color: none;
+  padding: 20px;
+  font-size: 14px;
+  `

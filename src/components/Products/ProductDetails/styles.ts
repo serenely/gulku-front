@@ -9,7 +9,7 @@ export const ProductDetailsContainer = styled.div`
   background-size: 350% 350%;
   animation: gradient 10s ease infinite;
   height: 160vh;
-
+/* 
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -20,7 +20,7 @@ export const ProductDetailsContainer = styled.div`
 	100% {
 		background-position: 0% 50%;
 	}
-}
+} */
 `
 // export const CardStyledOne = styled(Card)`
 //   display: flex;

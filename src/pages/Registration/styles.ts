@@ -11,7 +11,7 @@ export const RegistrationContainer = styled.div`
 	animation: gradient 10s ease infinite;
 	height: 100vh;
 
-@keyframes gradient {
+/* @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
 	}
@@ -21,7 +21,7 @@ export const RegistrationContainer = styled.div`
 	100% {
 		background-position: 0% 50%;
 	}
-}
+} */
 `
 export const RegistrationForm = styled.form`
   display: flex;
@@ -50,7 +50,7 @@ export const RegistrationForm = styled.form`
 	background-size: 400% 400%;
 	animation: gradient 10s ease infinite;
 
-@keyframes gradient {
+/* @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
 	}
@@ -60,7 +60,8 @@ export const RegistrationForm = styled.form`
 	100% {
 		background-position: 0% 50%;
 	}
-}      font-weight: bold;
+}   */
+    font-weight: bold;
       border: none;
       border-radius: 20px;
       margin: 10px;
@@ -78,7 +79,7 @@ export const RegistrationForm = styled.form`
 	background-size: 400% 400%;
 	animation: gradient 10s ease infinite;
 
-@keyframes gradient {
+/* @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
 	}
@@ -88,5 +89,5 @@ export const RegistrationForm = styled.form`
 	100% {
 		background-position: 0% 50%;
 	}
-}
+} */
 `

@@ -1,7 +1,7 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
-import { fetchProductData } from '../../api/productsApi';
-import { fetchProductFailure, fetchProductSuccess } from '../actions/actions';
-import { FETCH_PRODUCT_REQUEST } from '../../utils/constants';
+import { fetchProductData } from '../../../api/productsApi';
+import { fetchProductFailure, fetchProductSuccess } from '../../actions/actions';
+import { FETCH_PRODUCT_REQUEST } from '../../../utils/constants';
 
 interface FetchProductRequestAction {
   type: typeof FETCH_PRODUCT_REQUEST;

@@ -1,5 +1,5 @@
-import { LOGIN, LOGOUT } from "../../utils/constants";
-import { login, logout } from "../actions/actions";
+import { LOGIN, LOGOUT } from "../../../utils/constants";
+import { login, logout } from "../../actions/actions";
 
 type AuthState = {
     isAuthenticated: boolean;
