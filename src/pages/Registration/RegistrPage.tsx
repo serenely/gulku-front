@@ -14,6 +14,7 @@ const RegistrPage: React.FC = () => {
   const validationSchema = {
     fullName: {
       required: "Full name is required",
+      message: "Invalid Full Name address",
     },
     email: {
       required: "Email is required",
@@ -23,11 +24,7 @@ const RegistrPage: React.FC = () => {
       },
     },
     password: {
-      required: "Password is required",
-      minLength: {
-        value: 8,
-        message: "Password must be at least 8 characters long",
-      },
+      required: "Home address is required",
     },
     address: {
       required: "Home address is required",
@@ -54,9 +51,10 @@ const RegistrPage: React.FC = () => {
         <input type="text" {...register('fullName', { required: validationSchema.fullName.required })}  />
         {errors.fullName && <p>{errors.fullName.message}</p>}
         <label>Email</label>
-        <input type="email" {...register('email')}  />
+        <input type="email" {...register('email', {required: validationSchema.email.required})}  />
+        {errors.email && <p>{errors.email.message}</p>}
         <label>Password</label>
-        <input type="password" {...register('password', { required: validationSchema.password.required })} required />
+        <input type="password" {...register('password',{required: validationSchema.password.required})}/>
         {errors.password && <p>{errors.password.message}</p>}
         <label>Home address</label>
         <input type="text" {...register('address')} required />

@@ -11,7 +11,7 @@ interface FetchProductRequestAction {
 function* getProductDataSaga(action: FetchProductRequestAction): Generator<any, any, any>  {
   const { payload: _id } = action;
   try {
-    const productData = yield call(fetchProductData, _id); // Вызов функции для запроса данных
+    const productData = yield call(fetchProductData, _id);
     yield put(fetchProductSuccess(productData));
   } catch (error) {
     if (typeof error === 'string') {

@@ -1,5 +1,5 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
-import { AxiosResponse } from 'axios'; // Подключите правильные типы для вашей библиотеки HTTP запросов
+import { AxiosResponse } from 'axios'; 
 import { REMOVE_FROM_CART, REMOVE_FROM_DATA } from '../../../utils/constants';
 import { fetchProductDeleteData } from '../../../api/userApi';
 import { removeFromDataFailure, removeFromDataSuccess } from '../../actions/actions';

@@ -3,9 +3,9 @@ import { fetchProductsData } from '../../../api/productsApi';
 import { FETCH_PRODUCTS_REQUEST } from '../../../utils/constants';
 import { fetchProductsFailure, fetchProductsSuccess } from '../../actions/actions';
 
-function* getProductsDataSaga(): Generator<any, any, any>  { //разобраться для чего тут any, можно ли изменить
+function* getProductsDataSaga(): Generator<any, any, any>  {
   try {
-    const productsData = yield call(fetchProductsData); // Вызов функции для запроса данных
+    const productsData = yield call(fetchProductsData); 
     yield put(fetchProductsSuccess(productsData));
 
   } catch (error) {

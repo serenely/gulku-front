@@ -14,7 +14,7 @@ const LoginPage: React.FC = () => {
   const onSubmitForm = async (data: UserLog) => {
     dispatch(fetchUserLog(data));
     dispatch(login());
-    // navigate("/");
+    navigate("/");
   };
 
   return (

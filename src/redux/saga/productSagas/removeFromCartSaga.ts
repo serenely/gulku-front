@@ -4,7 +4,7 @@ import { REMOVE_FROM_CART } from "../../../utils/constants";
 import { Product } from "../../../utils/interface";
 import { RootState } from "../../store";
 
-function* handleRemoveFromCart(action: { type: string, payload: string }) { // почитать что такое генераторы
+function* handleRemoveFromCart(action: { type: string, payload: string }) { 
   try {
   const cartItems: Product[] = yield select((state: RootState) => state.cart.cartItems);
   const updatedCartItems = cartItems.filter(item => item._id !== action.payload);

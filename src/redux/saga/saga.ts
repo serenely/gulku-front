@@ -9,6 +9,7 @@ import { logoutSaga } from './userSagas/logoutSaga';
 import { fetchUserLogSaga } from './userSagas/userLogSaga';
 import { fetchUserDataSaga } from './userSagas/userDataSaga';
 import { removeItemSaga } from './userSagas/removeItemSaga';
+import { paginationSaga } from './productSagas/paginationSaga';
 
 export function* rootSaga() {
   yield all([
@@ -22,5 +23,6 @@ export function* rootSaga() {
     fetchUserLogSaga(),
     fetchUserDataSaga(),
     removeItemSaga(),
+    paginationSaga(),
     ]);
 }

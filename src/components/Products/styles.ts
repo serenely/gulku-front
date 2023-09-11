@@ -9,6 +9,26 @@ padding: 20px;
 margin: 20px;
 width: 1200px;
 border-radius: 20px;
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .pagination {
+    display: flex;
+    list-style: none;
+    padding: 10px;
+  }
+
+  .pagination li {
+    margin-right: 5px;
+    cursor: pointer;
+  }
+
+  .pagination .active {
+    font-weight: bold;
+  }
 `
 
 export const CardStyledOne = styled(Card)`

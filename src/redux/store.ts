@@ -5,7 +5,7 @@ import rootReducer from './reducers/index';
 import { logger } from 'redux-logger';
 
 const sagaMiddleware = createSagaMiddleware();
-export type RootState = ReturnType<typeof rootReducer>; // Определение типа RootState
+export type RootState = ReturnType<typeof rootReducer>; 
 
 const store = createStore(
   rootReducer,

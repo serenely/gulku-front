@@ -15,6 +15,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
   const user = useSelector((state: RootState) => state.user?.user);
   
+  function getCookie(name: string): string | undefined {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return decodeURIComponent(parts.pop()!.split(';').shift()!);
+  }
+
   const handleLogout = () => {
     navigate("/register");
     dispatch(logout());
@@ -23,7 +29,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   useEffect(() => {
     dispatch(loadProductsFromCart());
     dispatch(fetchUserDataRequest())
+    const userCookie = getCookie("user");
+  if (userCookie) {
     dispatch(login());
+  }
   }, [dispatch]);
 
     return (

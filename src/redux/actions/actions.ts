@@ -29,7 +29,8 @@ import {
   GET_USER_DATA_FAILURE,
   REMOVE_FROM_DATA_FAILURE,
   REMOVE_FROM_DATA_SUCCESS,
-  REMOVE_FROM_DATA
+  REMOVE_FROM_DATA,
+  SET_CURRENT_PAGE
 } from "../../utils/constants";
 import { 
   FetchUserAction,
@@ -197,4 +198,9 @@ import {
   export const removeFromDataFailure = (error: string): ProductDeleteFailureAction => ({
     type: REMOVE_FROM_DATA_FAILURE,
     payload: error,
+  });
+
+  export const setCurrentPage = (page: number) => ({
+    type: SET_CURRENT_PAGE,
+    payload: page,
   });
